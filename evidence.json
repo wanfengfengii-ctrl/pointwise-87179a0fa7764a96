@@ -1,0 +1,3785 @@
+{
+  "blockers": [
+    "COR-B1-ARRAY-SEG"
+  ],
+  "cache_isolation": [
+    {
+      "after": [
+        0,
+        0
+      ],
+      "before": [
+        0,
+        0
+      ],
+      "expected": "DecodeError",
+      "id": "CACHE-HDR-FAIL",
+      "note": "magic failure must not touch plan counters",
+      "outcome": {
+        "error": "magic",
+        "outcome": "DecodeError"
+      }
+    },
+    {
+      "after": [
+        0,
+        1
+      ],
+      "before": [
+        0,
+        0
+      ],
+      "expected": "DecodeError",
+      "id": "CACHE-B1-FAIL",
+      "note": "plan lookup happens before record reading",
+      "outcome": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      }
+    },
+    {
+      "after": [
+        1,
+        1
+      ],
+      "before": [
+        0,
+        1
+      ],
+      "expected": "rows",
+      "id": "CACHE-AFTER-FAIL",
+      "note": "retry after failure must equal cold start",
+      "outcome": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t70",
+              "t31",
+              "t94",
+              "t43"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "long",
+              "$value": -1068803237935643428
+            },
+            "tags": []
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "int",
+              "$value": 6764106
+            },
+            "tags": [
+              "t86",
+              "t97",
+              "t82",
+              "t73"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "int",
+              "$value": 298729673
+            },
+            "tags": [
+              "t11",
+              "t84",
+              "t72",
+              "t52"
+            ]
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t46",
+              "t29",
+              "t21"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "long",
+              "$value": -1987806174699216784
+            },
+            "tags": [
+              "t35",
+              "t40",
+              "t76"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t13",
+              "t97",
+              "t66"
+            ]
+          },
+          {
+            "id": "id-8",
+            "n": {
+              "$type": "long",
+              "$value": 135459219982570538
+            },
+            "tags": [
+              "t64",
+              "t92",
+              "t59",
+              "t17"
+            ]
+          },
+          {
+            "id": "id-9",
+            "n": {
+              "$type": "int",
+              "$value": 443721462
+            },
+            "tags": [
+              "t62",
+              "t19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "after": [
+        2,
+        1
+      ],
+      "before": [
+        1,
+        1
+      ],
+      "expected": "DecodeError",
+      "id": "CACHE-TAIL-FAIL",
+      "note": "sync failure at block tail",
+      "outcome": {
+        "error": "sync",
+        "outcome": "DecodeError"
+      }
+    },
+    {
+      "after": [
+        3,
+        1
+      ],
+      "before": [
+        2,
+        1
+      ],
+      "expected": "rows",
+      "id": "CACHE-AFTER-TAIL",
+      "note": "legal read after tail failure",
+      "outcome": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t70",
+              "t31",
+              "t94",
+              "t43"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "long",
+              "$value": -1068803237935643428
+            },
+            "tags": []
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "int",
+              "$value": 6764106
+            },
+            "tags": [
+              "t86",
+              "t97",
+              "t82",
+              "t73"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "int",
+              "$value": 298729673
+            },
+            "tags": [
+              "t11",
+              "t84",
+              "t72",
+              "t52"
+            ]
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t46",
+              "t29",
+              "t21"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "long",
+              "$value": -1987806174699216784
+            },
+            "tags": [
+              "t35",
+              "t40",
+              "t76"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t13",
+              "t97",
+              "t66"
+            ]
+          },
+          {
+            "id": "id-8",
+            "n": {
+              "$type": "long",
+              "$value": 135459219982570538
+            },
+            "tags": [
+              "t64",
+              "t92",
+              "t59",
+              "t17"
+            ]
+          },
+          {
+            "id": "id-9",
+            "n": {
+              "$type": "int",
+              "$value": 443721462
+            },
+            "tags": [
+              "t62",
+              "t19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "after": [
+        4,
+        1
+      ],
+      "before": [
+        3,
+        1
+      ],
+      "expected": "rows",
+      "id": "CACHE-EMPTY",
+      "note": "empty container plan lookup",
+      "outcome": {
+        "outcome": "rows",
+        "rows": []
+      }
+    },
+    {
+      "after": [
+        5,
+        1
+      ],
+      "before": [
+        4,
+        1
+      ],
+      "expected": "rows",
+      "id": "CACHE-KEY-ORDER",
+      "outcome": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t70",
+              "t31",
+              "t94",
+              "t43"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "long",
+              "$value": -1068803237935643428
+            },
+            "tags": []
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "int",
+              "$value": 6764106
+            },
+            "tags": [
+              "t86",
+              "t97",
+              "t82",
+              "t73"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "int",
+              "$value": 298729673
+            },
+            "tags": [
+              "t11",
+              "t84",
+              "t72",
+              "t52"
+            ]
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t46",
+              "t29",
+              "t21"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "long",
+              "$value": -1987806174699216784
+            },
+            "tags": [
+              "t35",
+              "t40",
+              "t76"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t13",
+              "t97",
+              "t66"
+            ]
+          },
+          {
+            "id": "id-8",
+            "n": {
+              "$type": "long",
+              "$value": 135459219982570538
+            },
+            "tags": [
+              "t64",
+              "t92",
+              "t59",
+              "t17"
+            ]
+          },
+          {
+            "id": "id-9",
+            "n": {
+              "$type": "int",
+              "$value": 443721462
+            },
+            "tags": [
+              "t62",
+              "t19"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "after": [
+        7,
+        1
+      ],
+      "expected": "rows",
+      "first_rows": 10,
+      "id": "CACHE-SWAP",
+      "outcome": {
+        "outcome": "rows"
+      },
+      "second_rows": 10
+    },
+    {
+      "after": [
+        8,
+        1
+      ],
+      "before": [
+        7,
+        1
+      ],
+      "expected": "DecodeError",
+      "id": "CACHE-NO-STALE",
+      "note": "truncated block count region",
+      "outcome": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      }
+    },
+    {
+      "after": [
+        9,
+        1
+      ],
+      "expected": "rows",
+      "id": "CACHE-NO-STALE-CHECK",
+      "outcome": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-9",
+            "n": {
+              "$type": "int",
+              "$value": 443721462
+            },
+            "tags": [
+              "t62",
+              "t19"
+            ]
+          },
+          {
+            "id": "id-8",
+            "n": {
+              "$type": "long",
+              "$value": 135459219982570538
+            },
+            "tags": [
+              "t64",
+              "t92",
+              "t59",
+              "t17"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t13",
+              "t97",
+              "t66"
+            ]
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "long",
+              "$value": -1987806174699216784
+            },
+            "tags": [
+              "t35",
+              "t40",
+              "t76"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t46",
+              "t29",
+              "t21"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "int",
+              "$value": 298729673
+            },
+            "tags": [
+              "t11",
+              "t84",
+              "t72",
+              "t52"
+            ]
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "int",
+              "$value": 6764106
+            },
+            "tags": [
+              "t86",
+              "t97",
+              "t82",
+              "t73"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "long",
+              "$value": -1068803237935643428
+            },
+            "tags": []
+          },
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t70",
+              "t31",
+              "t94",
+              "t43"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "after": [
+        0,
+        1
+      ],
+      "before": [
+        0,
+        0
+      ],
+      "expected": "rows",
+      "id": "CACHE-CLEARED-MISS",
+      "note": "fresh miss after clear",
+      "outcome": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t70",
+              "t31",
+              "t94",
+              "t43"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "long",
+              "$value": -1068803237935643428
+            },
+            "tags": []
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "int",
+              "$value": 6764106
+            },
+            "tags": [
+              "t86",
+              "t97",
+              "t82",
+              "t73"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "int",
+              "$value": 298729673
+            },
+            "tags": [
+              "t11",
+              "t84",
+              "t72",
+              "t52"
+            ]
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t46",
+              "t29",
+              "t21"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "long",
+              "$value": -1987806174699216784
+            },
+            "tags": [
+              "t35",
+              "t40",
+              "t76"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t13",
+              "t97",
+              "t66"
+            ]
+          },
+          {
+            "id": "id-8",
+            "n": {
+              "$type": "long",
+              "$value": 135459219982570538
+            },
+            "tags": [
+              "t64",
+              "t92",
+              "t59",
+              "t17"
+            ]
+          },
+          {
+            "id": "id-9",
+            "n": {
+              "$type": "int",
+              "$value": 443721462
+            },
+            "tags": [
+              "t62",
+              "t19"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "corrupt_matrix": [
+    {
+      "actual": {
+        "error": "magic",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "header/magic",
+      "expected": "DecodeError",
+      "id": "COR-HDR-MAGIC",
+      "note": "",
+      "oracle": {
+        "code": "magic",
+        "offset": 0,
+        "ok": false
+      },
+      "patch": [
+        {
+          "offset": 0
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 239,
+      "category": "header/varint-truncation",
+      "expected": "DecodeError",
+      "id": "COR-HDR-VARINT-TRUNC",
+      "note": "cut one byte before header sync",
+      "oracle": {
+        "code": "truncated",
+        "offset": 239,
+        "ok": false
+      },
+      "patch": [
+        {
+          "truncate": 239
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "long overflow",
+        "outcome": "DecodeError"
+      },
+      "bytes": 14,
+      "category": "header/varint-overflow",
+      "expected": "DecodeError",
+      "id": "COR-HDR-VARINT-OVERFLOW",
+      "note": "",
+      "oracle": {
+        "code": "varint",
+        "offset": 4,
+        "ok": false
+      },
+      "patch": [
+        {
+          "bytes": "ffffffffffffffffff80",
+          "offset": 4
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "negative size",
+        "outcome": "DecodeError"
+      },
+      "bytes": 299,
+      "category": "header/negative-length",
+      "expected": "DecodeError",
+      "id": "COR-HDR-NEG-LENGTH",
+      "note": "",
+      "oracle": {
+        "code": "length",
+        "offset": 5,
+        "ok": false
+      },
+      "patch": [
+        {
+          "bytes": "0109",
+          "offset": 4
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "metadata block size",
+        "outcome": "DecodeError"
+      },
+      "bytes": 518,
+      "category": "header/metadata-segment",
+      "expected": "DecodeError",
+      "id": "COR-HDR-META-SEG",
+      "note": "",
+      "oracle": {
+        "code": "metadata",
+        "offset": 4,
+        "ok": false
+      },
+      "patch": [
+        {
+          "actual_size": 218,
+          "declared_size": 220,
+          "offset": 5
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "duplicate metadata",
+        "outcome": "DecodeError"
+      },
+      "bytes": 702,
+      "category": "header/metadata-duplicate",
+      "expected": "DecodeError",
+      "id": "COR-HDR-META-DUP",
+      "note": "",
+      "oracle": {
+        "code": "metadata",
+        "offset": 207,
+        "ok": false
+      },
+      "patch": [
+        {
+          "note": "second avro.schema entry"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "schema metadata",
+        "outcome": "DecodeError"
+      },
+      "bytes": 323,
+      "category": "header/metadata-json",
+      "expected": "DecodeError",
+      "id": "COR-HDR-META-JSON",
+      "note": "",
+      "oracle": {
+        "code": "metadata",
+        "offset": 5,
+        "ok": false
+      },
+      "patch": [
+        {
+          "note": "avro.schema payload replaced by invalid JSON"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "sync",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "header/sync",
+      "expected": "DecodeError",
+      "id": "COR-HDR-SYNC",
+      "note": "",
+      "oracle": {
+        "code": "sync",
+        "offset": 301,
+        "ok": false
+      },
+      "patch": [
+        {
+          "offset": 224,
+          "xor": 1
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "record count",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "block/count",
+      "expected": "DecodeError",
+      "id": "COR-B1-COUNT",
+      "note": "",
+      "oracle": {
+        "code": "count",
+        "offset": 240,
+        "ok": false
+      },
+      "patch": [
+        {
+          "from": 8,
+          "offset": 240,
+          "to": 0
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "negative size",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "block/negative-length",
+      "expected": "DecodeError",
+      "id": "COR-B1-NEG-SIZE",
+      "note": "",
+      "oracle": {
+        "code": "length",
+        "offset": 241,
+        "ok": false
+      },
+      "patch": [
+        {
+          "bytes": "0d",
+          "offset": 241
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "block/length-mismatch",
+      "expected": "DecodeError",
+      "id": "COR-B1-SIZE-MISMATCH",
+      "note": "",
+      "oracle": {
+        "code": "sync",
+        "offset": 300,
+        "ok": false
+      },
+      "patch": [
+        {
+          "declared": 58,
+          "offset": 241,
+          "original": 59
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "block/record-count-mismatch",
+      "expected": "DecodeError",
+      "id": "COR-B1-COUNT-MISMATCH",
+      "note": "",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 9,
+              "end": 317,
+              "payload_end": 301,
+              "payload_start": 242,
+              "start": 240,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 436,
+              "payload_end": 420,
+              "payload_start": 320,
+              "start": 317,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 516,
+              "payload_end": 500,
+              "payload_start": 438,
+              "start": 436,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 240,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [
+        {
+          "declared_count": 9,
+          "offset": 240
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "sync",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "block/sync",
+      "expected": "DecodeError",
+      "id": "COR-B1-SYNC",
+      "note": "",
+      "oracle": {
+        "code": "sync",
+        "offset": 301,
+        "ok": false
+      },
+      "patch": [
+        {
+          "offset": 301,
+          "xor": "A5"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 243,
+      "category": "block/truncated-payload",
+      "expected": "DecodeError",
+      "id": "COR-B1-TRUNC-PAYLOAD",
+      "note": "",
+      "oracle": {
+        "code": "truncated",
+        "offset": 243,
+        "ok": false
+      },
+      "patch": [
+        {
+          "truncate": 243
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 316,
+      "category": "block/truncated-sync",
+      "expected": "DecodeError",
+      "id": "COR-B1-TRUNC-SYNC",
+      "note": "",
+      "oracle": {
+        "code": "truncated",
+        "offset": 316,
+        "ok": false
+      },
+      "patch": [
+        {
+          "truncate": 316
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "utf8",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "payload/utf8",
+      "expected": "DecodeError",
+      "id": "COR-B1-UTF8",
+      "note": "",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 4,
+              "end": 317,
+              "payload_end": 301,
+              "payload_start": 242,
+              "start": 240,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 436,
+              "payload_end": 420,
+              "payload_start": 320,
+              "start": 317,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 516,
+              "payload_end": 500,
+              "payload_start": 438,
+              "start": 436,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 240,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [
+        {
+          "offset": 266,
+          "to": "FF"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "union index",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "payload/union-index",
+      "expected": "DecodeError",
+      "id": "COR-B1-UNION",
+      "note": "",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 4,
+              "end": 317,
+              "payload_end": 301,
+              "payload_start": 242,
+              "start": 240,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 436,
+              "payload_end": 420,
+              "payload_start": 320,
+              "start": 317,
+              "sync_ok": true
+            },
+            {
+              "count": 4,
+              "end": 516,
+              "payload_end": 500,
+              "payload_start": 438,
+              "start": 436,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 240,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [
+        {
+          "offset": 254,
+          "to": "7F"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "int range",
+        "outcome": "DecodeError"
+      },
+      "bytes": 162,
+      "category": "payload/int-range",
+      "expected": "DecodeError",
+      "id": "COR-B1-INT-RANGE",
+      "note": "",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 1,
+              "end": 162,
+              "payload_end": 146,
+              "payload_start": 141,
+              "start": 139,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 139,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [
+        {
+          "offset": 141,
+          "value": 2147483648
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "t": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      "bytes": 186,
+      "category": "payload/array-segment",
+      "expected": "DecodeError",
+      "id": "COR-B1-ARRAY-SEG",
+      "note": "",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 1,
+              "end": 186,
+              "payload_end": 170,
+              "payload_start": 166,
+              "start": 164,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 164,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [
+        {
+          "from": 2,
+          "note": "negative array segment size overrun",
+          "offset": 167,
+          "to": 4
+        }
+      ],
+      "saved_input": "qa_artifacts/fail_inputs/COR-B1-ARRAY-SEG.bin",
+      "verdict": "blocker"
+    },
+    {
+      "actual": {
+        "error": "record count",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "prefix-then/count",
+      "expected": "DecodeError",
+      "id": "COR-B2-COUNT",
+      "note": "",
+      "oracle": {
+        "code": "count",
+        "offset": 317,
+        "ok": false
+      },
+      "patch": [
+        {
+          "offset": 317,
+          "to": 0
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "sync",
+        "outcome": "DecodeError"
+      },
+      "bytes": 516,
+      "category": "prefix-then/sync",
+      "expected": "DecodeError",
+      "id": "COR-B2-SYNC",
+      "note": "",
+      "oracle": {
+        "code": "sync",
+        "offset": 420,
+        "ok": false
+      },
+      "patch": [
+        {
+          "offset": 420,
+          "xor": "5A"
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      },
+      "bytes": 320,
+      "category": "prefix-then/truncation",
+      "expected": "DecodeError",
+      "id": "COR-B2-TRUNC",
+      "note": "",
+      "oracle": {
+        "code": "truncated",
+        "offset": 320,
+        "ok": false
+      },
+      "patch": [
+        {
+          "truncate": 320
+        }
+      ],
+      "verdict": "pass"
+    },
+    {
+      "actual": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "z": null
+          },
+          {
+            "z": null
+          }
+        ]
+      },
+      "bytes": 177,
+      "category": "block/zero-byte-payload",
+      "expected": "DecodeError",
+      "id": "COR-NULL-PAYLOAD-LEGAL",
+      "note": "positive count, zero-length payload",
+      "oracle": {
+        "frame": {
+          "blocks": [
+            {
+              "count": 1,
+              "end": 159,
+              "payload_end": 143,
+              "payload_start": 143,
+              "start": 141,
+              "sync_ok": true
+            },
+            {
+              "count": 1,
+              "end": 177,
+              "payload_end": 161,
+              "payload_start": 161,
+              "start": 159,
+              "sync_ok": true
+            }
+          ],
+          "header_end": 141,
+          "sync": "706f696e74776973652d6176726f3031"
+        },
+        "ok": true
+      },
+      "patch": [],
+      "verdict": "pass"
+    }
+  ],
+  "generated_at": "2026-11-14T12:00:02Z",
+  "legal_matrix": [
+    {
+      "actual_rows": [],
+      "block_rows": 32,
+      "bytes": 142,
+      "expected_rows": [],
+      "frame": {
+        "blocks": [],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-EMPTY",
+      "patch": [],
+      "rows": [],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "only"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 165,
+      "expected_rows": [
+        {
+          "s": "only"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 165,
+            "payload_end": 149,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-SINGLE",
+      "patch": [],
+      "rows": [
+        {
+          "s": "only"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 202,
+      "expected_rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 162,
+            "payload_end": 146,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 182,
+            "payload_end": 166,
+            "payload_start": 164,
+            "start": 162,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 202,
+            "payload_end": 186,
+            "payload_start": 184,
+            "start": 182,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-MULTI-1",
+      "patch": [],
+      "rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "block_rows": 2,
+      "bytes": 184,
+      "expected_rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 2,
+            "end": 164,
+            "payload_end": 148,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 184,
+            "payload_end": 168,
+            "payload_start": 166,
+            "start": 164,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-MULTI-2",
+      "patch": [],
+      "rows": [
+        {
+          "s": "a"
+        },
+        {
+          "s": "b"
+        },
+        {
+          "s": "c"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "x0"
+        },
+        {
+          "s": "x1"
+        },
+        {
+          "s": "x2"
+        },
+        {
+          "s": "x3"
+        },
+        {
+          "s": "x4"
+        },
+        {
+          "s": "x5"
+        },
+        {
+          "s": "x6"
+        },
+        {
+          "s": "x7"
+        },
+        {
+          "s": "x8"
+        },
+        {
+          "s": "x9"
+        },
+        {
+          "s": "x10"
+        },
+        {
+          "s": "x11"
+        },
+        {
+          "s": "x12"
+        },
+        {
+          "s": "x13"
+        },
+        {
+          "s": "x14"
+        },
+        {
+          "s": "x15"
+        },
+        {
+          "s": "x16"
+        },
+        {
+          "s": "x17"
+        },
+        {
+          "s": "x18"
+        },
+        {
+          "s": "x19"
+        },
+        {
+          "s": "x20"
+        },
+        {
+          "s": "x21"
+        },
+        {
+          "s": "x22"
+        },
+        {
+          "s": "x23"
+        },
+        {
+          "s": "x24"
+        },
+        {
+          "s": "x25"
+        },
+        {
+          "s": "x26"
+        },
+        {
+          "s": "x27"
+        },
+        {
+          "s": "x28"
+        },
+        {
+          "s": "x29"
+        },
+        {
+          "s": "x30"
+        },
+        {
+          "s": "x31"
+        },
+        {
+          "s": "x32"
+        },
+        {
+          "s": "x33"
+        },
+        {
+          "s": "x34"
+        },
+        {
+          "s": "x35"
+        },
+        {
+          "s": "x36"
+        },
+        {
+          "s": "x37"
+        },
+        {
+          "s": "x38"
+        },
+        {
+          "s": "x39"
+        }
+      ],
+      "block_rows": 32,
+      "bytes": 329,
+      "expected_rows": [
+        {
+          "s": "x0"
+        },
+        {
+          "s": "x1"
+        },
+        {
+          "s": "x2"
+        },
+        {
+          "s": "x3"
+        },
+        {
+          "s": "x4"
+        },
+        {
+          "s": "x5"
+        },
+        {
+          "s": "x6"
+        },
+        {
+          "s": "x7"
+        },
+        {
+          "s": "x8"
+        },
+        {
+          "s": "x9"
+        },
+        {
+          "s": "x10"
+        },
+        {
+          "s": "x11"
+        },
+        {
+          "s": "x12"
+        },
+        {
+          "s": "x13"
+        },
+        {
+          "s": "x14"
+        },
+        {
+          "s": "x15"
+        },
+        {
+          "s": "x16"
+        },
+        {
+          "s": "x17"
+        },
+        {
+          "s": "x18"
+        },
+        {
+          "s": "x19"
+        },
+        {
+          "s": "x20"
+        },
+        {
+          "s": "x21"
+        },
+        {
+          "s": "x22"
+        },
+        {
+          "s": "x23"
+        },
+        {
+          "s": "x24"
+        },
+        {
+          "s": "x25"
+        },
+        {
+          "s": "x26"
+        },
+        {
+          "s": "x27"
+        },
+        {
+          "s": "x28"
+        },
+        {
+          "s": "x29"
+        },
+        {
+          "s": "x30"
+        },
+        {
+          "s": "x31"
+        },
+        {
+          "s": "x32"
+        },
+        {
+          "s": "x33"
+        },
+        {
+          "s": "x34"
+        },
+        {
+          "s": "x35"
+        },
+        {
+          "s": "x36"
+        },
+        {
+          "s": "x37"
+        },
+        {
+          "s": "x38"
+        },
+        {
+          "s": "x39"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 32,
+            "end": 279,
+            "payload_end": 263,
+            "payload_start": 145,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 8,
+            "end": 329,
+            "payload_end": 313,
+            "payload_start": 281,
+            "start": 279,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-BLOCK32",
+      "patch": [],
+      "rows": [
+        {
+          "s": "x0"
+        },
+        {
+          "s": "x1"
+        },
+        {
+          "s": "x2"
+        },
+        {
+          "s": "x3"
+        },
+        {
+          "s": "x4"
+        },
+        {
+          "s": "x5"
+        },
+        {
+          "s": "x6"
+        },
+        {
+          "s": "x7"
+        },
+        {
+          "s": "x8"
+        },
+        {
+          "s": "x9"
+        },
+        {
+          "s": "x10"
+        },
+        {
+          "s": "x11"
+        },
+        {
+          "s": "x12"
+        },
+        {
+          "s": "x13"
+        },
+        {
+          "s": "x14"
+        },
+        {
+          "s": "x15"
+        },
+        {
+          "s": "x16"
+        },
+        {
+          "s": "x17"
+        },
+        {
+          "s": "x18"
+        },
+        {
+          "s": "x19"
+        },
+        {
+          "s": "x20"
+        },
+        {
+          "s": "x21"
+        },
+        {
+          "s": "x22"
+        },
+        {
+          "s": "x23"
+        },
+        {
+          "s": "x24"
+        },
+        {
+          "s": "x25"
+        },
+        {
+          "s": "x26"
+        },
+        {
+          "s": "x27"
+        },
+        {
+          "s": "x28"
+        },
+        {
+          "s": "x29"
+        },
+        {
+          "s": "x30"
+        },
+        {
+          "s": "x31"
+        },
+        {
+          "s": "x32"
+        },
+        {
+          "s": "x33"
+        },
+        {
+          "s": "x34"
+        },
+        {
+          "s": "x35"
+        },
+        {
+          "s": "x36"
+        },
+        {
+          "s": "x37"
+        },
+        {
+          "s": "x38"
+        },
+        {
+          "s": "x39"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "dup"
+        },
+        {
+          "s": "dup"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 186,
+      "expected_rows": [
+        {
+          "s": "dup"
+        },
+        {
+          "s": "dup"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 164,
+            "payload_end": 148,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 186,
+            "payload_end": 170,
+            "payload_start": 166,
+            "start": 164,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-DUP",
+      "patch": [],
+      "rows": [
+        {
+          "s": "dup"
+        },
+        {
+          "s": "dup"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [
+        {
+          "id": "id-0",
+          "n": {
+            "$type": "long",
+            "$value": -531818979813326976
+          },
+          "tags": [
+            "t45",
+            "t71",
+            "t76"
+          ]
+        },
+        {
+          "id": "id-1",
+          "n": {
+            "$type": "long",
+            "$value": -4479930189973540921
+          },
+          "tags": []
+        },
+        {
+          "id": "id-2",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t52",
+            "t67",
+            "t62",
+            "t90"
+          ]
+        },
+        {
+          "id": "id-3",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t8",
+            "t41"
+          ]
+        },
+        {
+          "id": "id-4",
+          "n": {
+            "$type": "int",
+            "$value": 1273429075
+          },
+          "tags": [
+            "t7",
+            "t48",
+            "t77"
+          ]
+        },
+        {
+          "id": "id-5",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t92",
+            "t87",
+            "t56",
+            "t0"
+          ]
+        },
+        {
+          "id": "id-6",
+          "n": {
+            "$type": "long",
+            "$value": 4182804491366627362
+          },
+          "tags": [
+            "t66",
+            "t50",
+            "t2",
+            "t85"
+          ]
+        },
+        {
+          "id": "id-7",
+          "n": {
+            "$type": "long",
+            "$value": 295865029603027901
+          },
+          "tags": [
+            "t14",
+            "t65",
+            "t17"
+          ]
+        },
+        {
+          "id": "id-8",
+          "n": {
+            "$type": "int",
+            "$value": 429970307
+          },
+          "tags": []
+        },
+        {
+          "id": "id-9",
+          "n": {
+            "$type": "long",
+            "$value": 4010412889989005538
+          },
+          "tags": []
+        },
+        {
+          "id": "id-10",
+          "n": {
+            "$type": "int",
+            "$value": 1467938770
+          },
+          "tags": [
+            "t8",
+            "t9"
+          ]
+        },
+        {
+          "id": "id-11",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t3",
+            "t88"
+          ]
+        },
+        {
+          "id": "id-12",
+          "n": {
+            "$type": "int",
+            "$value": -1805445410
+          },
+          "tags": []
+        },
+        {
+          "id": "id-13",
+          "n": {
+            "$type": "int",
+            "$value": 667640102
+          },
+          "tags": []
+        },
+        {
+          "id": "id-14",
+          "n": {
+            "$type": "int",
+            "$value": -1081146014
+          },
+          "tags": []
+        },
+        {
+          "id": "id-15",
+          "n": {
+            "$type": "long",
+            "$value": 4307403657169920953
+          },
+          "tags": [
+            "t95",
+            "t95",
+            "t66"
+          ]
+        },
+        {
+          "id": "id-16",
+          "n": {
+            "$type": "int",
+            "$value": 874957705
+          },
+          "tags": []
+        },
+        {
+          "id": "id-17",
+          "n": {
+            "$type": "int",
+            "$value": -617011100
+          },
+          "tags": [
+            "t50",
+            "t38"
+          ]
+        },
+        {
+          "id": "id-18",
+          "n": {
+            "$type": "long",
+            "$value": -2760454351719321228
+          },
+          "tags": []
+        },
+        {
+          "id": "id-19",
+          "n": {
+            "$type": "long",
+            "$value": 651944059936009389
+          },
+          "tags": []
+        },
+        {
+          "id": "id-20",
+          "n": {
+            "$type": "long",
+            "$value": 4578729856882183570
+          },
+          "tags": [
+            "t27",
+            "t36",
+            "t74"
+          ]
+        },
+        {
+          "id": "id-21",
+          "n": {
+            "$type": "int",
+            "$value": -1779078358
+          },
+          "tags": [
+            "t46",
+            "t47",
+            "t64",
+            "t43"
+          ]
+        },
+        {
+          "id": "id-22",
+          "n": {
+            "$type": "int",
+            "$value": -1528996408
+          },
+          "tags": [
+            "t47"
+          ]
+        },
+        {
+          "id": "id-23",
+          "n": {
+            "$type": "long",
+            "$value": -1929747193882347533
+          },
+          "tags": [
+            "t6",
+            "t20"
+          ]
+        },
+        {
+          "id": "id-24",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t59",
+            "t59",
+            "t77"
+          ]
+        }
+      ],
+      "block_rows": 7,
+      "bytes": 834,
+      "expected_rows": [
+        {
+          "id": "id-0",
+          "n": {
+            "$type": "long",
+            "$value": -531818979813326976
+          },
+          "tags": [
+            "t45",
+            "t71",
+            "t76"
+          ]
+        },
+        {
+          "id": "id-1",
+          "n": {
+            "$type": "long",
+            "$value": -4479930189973540921
+          },
+          "tags": []
+        },
+        {
+          "id": "id-2",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t52",
+            "t67",
+            "t62",
+            "t90"
+          ]
+        },
+        {
+          "id": "id-3",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t8",
+            "t41"
+          ]
+        },
+        {
+          "id": "id-4",
+          "n": {
+            "$type": "int",
+            "$value": 1273429075
+          },
+          "tags": [
+            "t7",
+            "t48",
+            "t77"
+          ]
+        },
+        {
+          "id": "id-5",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t92",
+            "t87",
+            "t56",
+            "t0"
+          ]
+        },
+        {
+          "id": "id-6",
+          "n": {
+            "$type": "long",
+            "$value": 4182804491366627362
+          },
+          "tags": [
+            "t66",
+            "t50",
+            "t2",
+            "t85"
+          ]
+        },
+        {
+          "id": "id-7",
+          "n": {
+            "$type": "long",
+            "$value": 295865029603027901
+          },
+          "tags": [
+            "t14",
+            "t65",
+            "t17"
+          ]
+        },
+        {
+          "id": "id-8",
+          "n": {
+            "$type": "int",
+            "$value": 429970307
+          },
+          "tags": []
+        },
+        {
+          "id": "id-9",
+          "n": {
+            "$type": "long",
+            "$value": 4010412889989005538
+          },
+          "tags": []
+        },
+        {
+          "id": "id-10",
+          "n": {
+            "$type": "int",
+            "$value": 1467938770
+          },
+          "tags": [
+            "t8",
+            "t9"
+          ]
+        },
+        {
+          "id": "id-11",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t3",
+            "t88"
+          ]
+        },
+        {
+          "id": "id-12",
+          "n": {
+            "$type": "int",
+            "$value": -1805445410
+          },
+          "tags": []
+        },
+        {
+          "id": "id-13",
+          "n": {
+            "$type": "int",
+            "$value": 667640102
+          },
+          "tags": []
+        },
+        {
+          "id": "id-14",
+          "n": {
+            "$type": "int",
+            "$value": -1081146014
+          },
+          "tags": []
+        },
+        {
+          "id": "id-15",
+          "n": {
+            "$type": "long",
+            "$value": 4307403657169920953
+          },
+          "tags": [
+            "t95",
+            "t95",
+            "t66"
+          ]
+        },
+        {
+          "id": "id-16",
+          "n": {
+            "$type": "int",
+            "$value": 874957705
+          },
+          "tags": []
+        },
+        {
+          "id": "id-17",
+          "n": {
+            "$type": "int",
+            "$value": -617011100
+          },
+          "tags": [
+            "t50",
+            "t38"
+          ]
+        },
+        {
+          "id": "id-18",
+          "n": {
+            "$type": "long",
+            "$value": -2760454351719321228
+          },
+          "tags": []
+        },
+        {
+          "id": "id-19",
+          "n": {
+            "$type": "long",
+            "$value": 651944059936009389
+          },
+          "tags": []
+        },
+        {
+          "id": "id-20",
+          "n": {
+            "$type": "long",
+            "$value": 4578729856882183570
+          },
+          "tags": [
+            "t27",
+            "t36",
+            "t74"
+          ]
+        },
+        {
+          "id": "id-21",
+          "n": {
+            "$type": "int",
+            "$value": -1779078358
+          },
+          "tags": [
+            "t46",
+            "t47",
+            "t64",
+            "t43"
+          ]
+        },
+        {
+          "id": "id-22",
+          "n": {
+            "$type": "int",
+            "$value": -1528996408
+          },
+          "tags": [
+            "t47"
+          ]
+        },
+        {
+          "id": "id-23",
+          "n": {
+            "$type": "long",
+            "$value": -1929747193882347533
+          },
+          "tags": [
+            "t6",
+            "t20"
+          ]
+        },
+        {
+          "id": "id-24",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t59",
+            "t59",
+            "t77"
+          ]
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 7,
+            "end": 422,
+            "payload_end": 406,
+            "payload_start": 243,
+            "start": 240,
+            "sync_ok": true
+          },
+          {
+            "count": 7,
+            "end": 560,
+            "payload_end": 544,
+            "payload_start": 425,
+            "start": 422,
+            "sync_ok": true
+          },
+          {
+            "count": 7,
+            "end": 721,
+            "payload_end": 705,
+            "payload_start": 563,
+            "start": 560,
+            "sync_ok": true
+          },
+          {
+            "count": 4,
+            "end": 834,
+            "payload_end": 818,
+            "payload_start": 724,
+            "start": 721,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 240,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-RICH",
+      "patch": [],
+      "rows": [
+        {
+          "id": "id-0",
+          "n": {
+            "$type": "long",
+            "$value": -531818979813326976
+          },
+          "tags": [
+            "t45",
+            "t71",
+            "t76"
+          ]
+        },
+        {
+          "id": "id-1",
+          "n": {
+            "$type": "long",
+            "$value": -4479930189973540921
+          },
+          "tags": []
+        },
+        {
+          "id": "id-2",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t52",
+            "t67",
+            "t62",
+            "t90"
+          ]
+        },
+        {
+          "id": "id-3",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t8",
+            "t41"
+          ]
+        },
+        {
+          "id": "id-4",
+          "n": {
+            "$type": "int",
+            "$value": 1273429075
+          },
+          "tags": [
+            "t7",
+            "t48",
+            "t77"
+          ]
+        },
+        {
+          "id": "id-5",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t92",
+            "t87",
+            "t56",
+            "t0"
+          ]
+        },
+        {
+          "id": "id-6",
+          "n": {
+            "$type": "long",
+            "$value": 4182804491366627362
+          },
+          "tags": [
+            "t66",
+            "t50",
+            "t2",
+            "t85"
+          ]
+        },
+        {
+          "id": "id-7",
+          "n": {
+            "$type": "long",
+            "$value": 295865029603027901
+          },
+          "tags": [
+            "t14",
+            "t65",
+            "t17"
+          ]
+        },
+        {
+          "id": "id-8",
+          "n": {
+            "$type": "int",
+            "$value": 429970307
+          },
+          "tags": []
+        },
+        {
+          "id": "id-9",
+          "n": {
+            "$type": "long",
+            "$value": 4010412889989005538
+          },
+          "tags": []
+        },
+        {
+          "id": "id-10",
+          "n": {
+            "$type": "int",
+            "$value": 1467938770
+          },
+          "tags": [
+            "t8",
+            "t9"
+          ]
+        },
+        {
+          "id": "id-11",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t3",
+            "t88"
+          ]
+        },
+        {
+          "id": "id-12",
+          "n": {
+            "$type": "int",
+            "$value": -1805445410
+          },
+          "tags": []
+        },
+        {
+          "id": "id-13",
+          "n": {
+            "$type": "int",
+            "$value": 667640102
+          },
+          "tags": []
+        },
+        {
+          "id": "id-14",
+          "n": {
+            "$type": "int",
+            "$value": -1081146014
+          },
+          "tags": []
+        },
+        {
+          "id": "id-15",
+          "n": {
+            "$type": "long",
+            "$value": 4307403657169920953
+          },
+          "tags": [
+            "t95",
+            "t95",
+            "t66"
+          ]
+        },
+        {
+          "id": "id-16",
+          "n": {
+            "$type": "int",
+            "$value": 874957705
+          },
+          "tags": []
+        },
+        {
+          "id": "id-17",
+          "n": {
+            "$type": "int",
+            "$value": -617011100
+          },
+          "tags": [
+            "t50",
+            "t38"
+          ]
+        },
+        {
+          "id": "id-18",
+          "n": {
+            "$type": "long",
+            "$value": -2760454351719321228
+          },
+          "tags": []
+        },
+        {
+          "id": "id-19",
+          "n": {
+            "$type": "long",
+            "$value": 651944059936009389
+          },
+          "tags": []
+        },
+        {
+          "id": "id-20",
+          "n": {
+            "$type": "long",
+            "$value": 4578729856882183570
+          },
+          "tags": [
+            "t27",
+            "t36",
+            "t74"
+          ]
+        },
+        {
+          "id": "id-21",
+          "n": {
+            "$type": "int",
+            "$value": -1779078358
+          },
+          "tags": [
+            "t46",
+            "t47",
+            "t64",
+            "t43"
+          ]
+        },
+        {
+          "id": "id-22",
+          "n": {
+            "$type": "int",
+            "$value": -1528996408
+          },
+          "tags": [
+            "t47"
+          ]
+        },
+        {
+          "id": "id-23",
+          "n": {
+            "$type": "long",
+            "$value": -1929747193882347533
+          },
+          "tags": [
+            "t6",
+            "t20"
+          ]
+        },
+        {
+          "id": "id-24",
+          "n": {
+            "$type": "null",
+            "$value": null
+          },
+          "tags": [
+            "t59",
+            "t59",
+            "t77"
+          ]
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "n",
+            "type": [
+              "null",
+              "int",
+              "long"
+            ]
+          },
+          {
+            "name": "tags",
+            "type": {
+              "items": "string",
+              "type": "array"
+            }
+          }
+        ],
+        "name": "Rich",
+        "namespace": "qa",
+        "type": "record"
+      }
+    },
+    {
+      "actual_rows": [],
+      "block_rows": 1,
+      "bytes": 142,
+      "expected_rows": [],
+      "frame": {
+        "blocks": [],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-PREFIX-0",
+      "patch": [],
+      "rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      },
+      "truncate_at": 142
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "p0"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 163,
+      "expected_rows": [
+        {
+          "s": "p0"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 163,
+            "payload_end": 147,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-PREFIX-1",
+      "patch": [],
+      "rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      },
+      "truncate_at": 163
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 184,
+      "expected_rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 163,
+            "payload_end": 147,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 184,
+            "payload_end": 168,
+            "payload_start": 165,
+            "start": 163,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-PREFIX-2",
+      "patch": [],
+      "rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      },
+      "truncate_at": 184
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 205,
+      "expected_rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 163,
+            "payload_end": 147,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 184,
+            "payload_end": 168,
+            "payload_start": 165,
+            "start": 163,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 205,
+            "payload_end": 189,
+            "payload_start": 186,
+            "start": 184,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-PREFIX-3",
+      "patch": [],
+      "rows": [
+        {
+          "s": "p0"
+        },
+        {
+          "s": "p1"
+        },
+        {
+          "s": "p2"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "StrRec",
+        "namespace": "qa",
+        "type": "record"
+      },
+      "truncate_at": 205
+    },
+    {
+      "actual_rows": [
+        {
+          "s": "n1"
+        },
+        {
+          "s": "n2"
+        }
+      ],
+      "block_rows": 1,
+      "bytes": 187,
+      "expected_rows": [
+        {
+          "s": "n1"
+        },
+        {
+          "s": "n2"
+        }
+      ],
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 166,
+            "payload_end": 150,
+            "payload_start": 147,
+            "start": 145,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 187,
+            "payload_end": 171,
+            "payload_start": 168,
+            "start": 166,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 145,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "LEG-NEGMETA",
+      "patch": [],
+      "rows": [
+        {
+          "s": "n1"
+        },
+        {
+          "s": "n2"
+        }
+      ],
+      "schema": {
+        "fields": [
+          {
+            "name": "s",
+            "type": "string"
+          }
+        ],
+        "name": "NegMeta",
+        "namespace": "qa",
+        "type": "record"
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "business_detects_mutation": true,
+      "id": "MUT-SKIP-SYNC",
+      "input": "qa_artifacts/fail_inputs/MUT-SKIP-SYNC-INPUT.bin",
+      "mutant": {
+        "outcome": "rows",
+        "rows": [
+          {
+            "id": "id-0",
+            "n": {
+              "$type": "long",
+              "$value": -462047261381337618
+            },
+            "tags": [
+              "t70",
+              "t28",
+              "t88",
+              "t27"
+            ]
+          },
+          {
+            "id": "id-1",
+            "n": {
+              "$type": "int",
+              "$value": -536918489
+            },
+            "tags": [
+              "t69",
+              "t36"
+            ]
+          },
+          {
+            "id": "id-2",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t34",
+              "t19",
+              "t80",
+              "t89"
+            ]
+          },
+          {
+            "id": "id-3",
+            "n": {
+              "$type": "long",
+              "$value": 4583141155868240475
+            },
+            "tags": [
+              "t11"
+            ]
+          },
+          {
+            "id": "id-4",
+            "n": {
+              "$type": "long",
+              "$value": -1485301837347838654
+            },
+            "tags": [
+              "t94"
+            ]
+          },
+          {
+            "id": "id-5",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": []
+          },
+          {
+            "id": "id-6",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t51",
+              "t67"
+            ]
+          },
+          {
+            "id": "id-7",
+            "n": {
+              "$type": "null",
+              "$value": null
+            },
+            "tags": [
+              "t75",
+              "t56"
+            ]
+          }
+        ]
+      },
+      "mutation": "skip-block-sync",
+      "note": "mutant returns a successful batch despite bad block sync",
+      "patch": [
+        {
+          "offset": 438,
+          "xor": "C3"
+        }
+      ],
+      "pristine": {
+        "error": "sync",
+        "outcome": "DecodeError"
+      }
+    },
+    {
+      "business_detects_mutation": true,
+      "id": "MUT-SWALLOW-TAIL",
+      "input": "qa_artifacts/fail_inputs/MUT-SWALLOW-TAIL-INPUT.bin",
+      "mutant": {
+        "outcome": "rows",
+        "rows": []
+      },
+      "mutation": "swallow-tail-decodeerror",
+      "note": "mutant returns parsed prefix rows of a truncated file",
+      "patch": [
+        {
+          "truncate": 407
+        }
+      ],
+      "pristine": {
+        "error": "truncated",
+        "outcome": "DecodeError"
+      }
+    }
+  ],
+  "oracle_cross": [
+    {
+      "bytes": 142,
+      "expected_header_end": 142,
+      "frame": {
+        "blocks": [],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "ORC-EMPTY"
+    },
+    {
+      "bytes": 177,
+      "expected": {
+        "block_1": {
+          "count": 1,
+          "end": 159,
+          "payload_end": 143,
+          "payload_start": 143,
+          "start": 141
+        },
+        "block_2": {
+          "count": 1,
+          "end": 177,
+          "start": 159
+        },
+        "header_end": 141
+      },
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 159,
+            "payload_end": 143,
+            "payload_start": 143,
+            "start": 141,
+            "sync_ok": true
+          },
+          {
+            "count": 1,
+            "end": 177,
+            "payload_end": 161,
+            "payload_start": 161,
+            "start": 159,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 141,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "ORC-NULL-PAYLOAD",
+      "rows": [
+        {
+          "z": null
+        },
+        {
+          "z": null
+        }
+      ]
+    },
+    {
+      "bytes": 166,
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 166,
+            "payload_end": 150,
+            "payload_start": 147,
+            "start": 145,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 145,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "header_end": 145,
+      "id": "ORC-NEG-META",
+      "rows": [
+        {
+          "s": "hi"
+        }
+      ]
+    },
+    {
+      "bytes": 177,
+      "frame": {
+        "blocks": [
+          {
+            "count": 1,
+            "end": 177,
+            "payload_end": 161,
+            "payload_start": 144,
+            "start": 142,
+            "sync_ok": true
+          }
+        ],
+        "header_end": 142,
+        "sync": "706f696e74776973652d6176726f3031"
+      },
+      "id": "ORC-EMBEDDED-SYNC",
+      "rows": [
+        {
+          "s": "pointwise-avro01"
+        }
+      ]
+    },
+    {
+      "bytes": 163,
+      "expected_code": "magic",
+      "expected_offset": 0,
+      "id": "ORC-ERR-MAGIC",
+      "observed": {
+        "code": "magic",
+        "offset": 0,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 2,
+      "expected_code": "truncated",
+      "expected_offset": 2,
+      "id": "ORC-ERR-SHORT",
+      "observed": {
+        "code": "truncated",
+        "offset": 2,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 0,
+      "expected_code": "truncated",
+      "expected_offset": 0,
+      "id": "ORC-ERR-ZERO",
+      "observed": {
+        "code": "truncated",
+        "offset": 0,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 14,
+      "expected_code": "varint",
+      "expected_offset": 4,
+      "id": "ORC-ERR-VARINT10",
+      "observed": {
+        "code": "varint",
+        "offset": 4,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 14,
+      "expected_code": "varint",
+      "expected_offset": 4,
+      "id": "ORC-ERR-VARINTOF",
+      "observed": {
+        "code": "varint",
+        "offset": 4,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 5,
+      "expected_code": "truncated",
+      "expected_offset": 5,
+      "id": "ORC-ERR-VARINTTR",
+      "observed": {
+        "code": "truncated",
+        "offset": 5,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 6,
+      "expected_code": "length",
+      "expected_offset": 5,
+      "id": "ORC-ERR-LEN",
+      "observed": {
+        "code": "length",
+        "offset": 5,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 144,
+      "expected_code": "metadata",
+      "expected_offset": 4,
+      "id": "ORC-ERR-META-SEG",
+      "observed": {
+        "code": "metadata",
+        "offset": 4,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 230,
+      "expected_code": "metadata",
+      "expected_offset": 109,
+      "id": "ORC-ERR-META-DUP",
+      "observed": {
+        "code": "metadata",
+        "offset": 109,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 38,
+      "expected_code": "metadata",
+      "expected_offset": 4,
+      "id": "ORC-ERR-META-MISS",
+      "observed": {
+        "code": "metadata",
+        "offset": 4,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 39,
+      "expected_code": "metadata",
+      "expected_offset": 5,
+      "id": "ORC-ERR-META-JSON",
+      "observed": {
+        "code": "metadata",
+        "offset": 5,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 141,
+      "expected_code": "truncated",
+      "expected_offset": 141,
+      "id": "ORC-ERR-HDRSYNC",
+      "observed": {
+        "code": "truncated",
+        "offset": 141,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 159,
+      "expected_code": "count",
+      "expected_offset": 142,
+      "id": "ORC-ERR-COUNT",
+      "observed": {
+        "code": "count",
+        "offset": 142,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 160,
+      "expected_code": "length",
+      "expected_offset": 143,
+      "id": "ORC-ERR-BLOCKLEN",
+      "observed": {
+        "code": "length",
+        "offset": 143,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 145,
+      "expected_code": "truncated",
+      "expected_offset": 145,
+      "id": "ORC-ERR-BLOCKTR",
+      "observed": {
+        "code": "truncated",
+        "offset": 145,
+        "ok": false
+      }
+    },
+    {
+      "bytes": 163,
+      "expected_code": "sync",
+      "expected_offset": 147,
+      "id": "ORC-ERR-SYNC",
+      "observed": {
+        "code": "sync",
+        "offset": 147,
+        "ok": false
+      }
+    }
+  ],
+  "python": "3.11.2",
+  "regression": {
+    "returncode": 0,
+    "stdout": "AVRO_NORMAL_OK"
+  },
+  "report_referenced_ids": [
+    "CACHE-AFTER-FAIL",
+    "CACHE-AFTER-TAIL",
+    "CACHE-B1-FAIL",
+    "CACHE-CLEARED-MISS",
+    "CACHE-EMPTY",
+    "CACHE-HDR-FAIL",
+    "CACHE-KEY-ORDER",
+    "CACHE-NO-STALE",
+    "CACHE-NO-STALE-CHECK",
+    "CACHE-SWAP",
+    "CACHE-TAIL-FAIL",
+    "COR-B1-ARRAY-SEG",
+    "COR-B1-COUNT",
+    "COR-B1-COUNT-MISMATCH",
+    "COR-B1-INT-RANGE",
+    "COR-B1-NEG-SIZE",
+    "COR-B1-SIZE-MISMATCH",
+    "COR-B1-SYNC",
+    "COR-B1-TRUNC-PAYLOAD",
+    "COR-B1-TRUNC-SYNC",
+    "COR-B1-UNION",
+    "COR-B1-UTF8",
+    "COR-B2-COUNT",
+    "COR-B2-SYNC",
+    "COR-B2-TRUNC",
+    "COR-HDR-MAGIC",
+    "COR-HDR-META-DUP",
+    "COR-HDR-META-JSON",
+    "COR-HDR-META-SEG",
+    "COR-HDR-NEG-LENGTH",
+    "COR-HDR-SYNC",
+    "COR-HDR-VARINT-OVERFLOW",
+    "COR-HDR-VARINT-TRUNC",
+    "COR-NULL-PAYLOAD-LEGAL",
+    "LEG-BLOCK32",
+    "LEG-DUP",
+    "LEG-EMPTY",
+    "LEG-MULTI-1",
+    "LEG-MULTI-2",
+    "LEG-NEGMETA",
+    "LEG-PREFIX-0",
+    "LEG-PREFIX-3",
+    "LEG-RICH",
+    "LEG-SINGLE",
+    "MUT-SKIP-SYNC",
+    "MUT-SWALLOW-TAIL",
+    "ORC-EMBEDDED-SYNC",
+    "ORC-EMPTY",
+    "ORC-ERR-BLOCKLEN",
+    "ORC-ERR-BLOCKTR",
+    "ORC-ERR-COUNT",
+    "ORC-ERR-HDRSYNC",
+    "ORC-ERR-LEN",
+    "ORC-ERR-MAGIC",
+    "ORC-ERR-SHORT",
+    "ORC-ERR-SYNC",
+    "ORC-ERR-VARINT10",
+    "ORC-ERR-VARINTOF",
+    "ORC-ERR-VARINTTR",
+    "ORC-ERR-ZERO",
+    "ORC-NEG-META",
+    "ORC-NULL-PAYLOAD",
+    "STRESS-LONG-ARRAY"
+  ],
+  "seed": 20261114,
+  "stress": {
+    "array_length": 500,
+    "blocks": 8,
+    "elapsed_seconds": 10.129317,
+    "frame": {
+      "header_end": 229,
+      "last_block_end": 6016437
+    },
+    "id": "STRESS-LONG-ARRAY",
+    "input_bytes": 6016437,
+    "peak_python_alloc_bytes": 43752809,
+    "returned_rows": 2000,
+    "rows": 2000,
+    "seed": 20261114
+  }
+}
